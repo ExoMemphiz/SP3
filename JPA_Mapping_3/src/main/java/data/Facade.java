@@ -24,9 +24,6 @@ public class Facade {
     
     public static void main(String[] args) {
         Facade facade = new Facade();
-        for (Orders o : facade.getOrdersOnHold(144)) {
-            System.out.println(o.getOrderNumber());
-        }
     }
     
     public EntityManagerFactory getFactory(String puName) {
@@ -99,10 +96,20 @@ public class Facade {
         return q1.getResultList();
     }
     
-    public Employees getEmployeeMaxCustomers() {
-        Query q1 = getManager().createQuery("");
-        return null;
-    }
+//    public Employees getEmployeeMaxCustomers() {
+//        //Find which employee is mentioned most in customer db
+//        Query q1 = getManager().createQuery("SELECT e, count(DISTINCT e) FROM Employees e, Customers c WHERE c.employees.employeeNumber = e.employeeNumber GROUP BY e");
+//        List list = q1.getResultList();
+//        for (Object o : list) {
+//            System.out.println(o.getClass());
+//            if (o.getClass().equals(Integer.class)) {
+//                System.out.println("Occurences: " + (int) o);
+//            }
+//        }
+//        Employees e = (Employees) q1.getSingleResult();
+//        System.out.println(e.getEmployeeNumber());
+//        return null;
+//    }
     
     public List<Orders> getOrdersOnHold() {
         Query q1 = getManager().createQuery("SELECT o FROM Orders o WHERE o.status = :status");
