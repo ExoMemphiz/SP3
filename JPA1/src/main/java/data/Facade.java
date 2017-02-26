@@ -23,9 +23,7 @@ public class Facade {
     
     public static void main(String[] args) {
         Facade facade = new Facade();
-        //facade.createProject("Test Proj1", "Testing Project #1");
-        //facade.assignUserToProject(facade.findProject("Test Proj1"), facade.findUser("TestUser2"));
-        facade.createTaskAndAssignToProject(facade.findProject("Test Proj1"), "Test Task", "Test Task Desc", 100);
+        
     }
     
     public EntityManagerFactory getFactory(String puName) {
